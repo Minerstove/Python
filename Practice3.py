@@ -112,9 +112,25 @@ print(gifted((
 )"""
 
 #Prac 3i - Healthy Diet
-def exciting_meal_plans():
-    return ...
+def exciting_meal_plans(n):
+    if n == 0:
+        return ()
+    def meal_builder(prefix, last_char, run_len, left):
+        if left == 0:
+            return (prefix,)
+        if (last_char is None) or ('a' != last_char) or (run_len < 2 and 'a' == last_char):
+            res_a = meal_builder(prefix+'a', 'a', run_len + 1 if last_char == 'a' else 1, left - 1)
+        else:
+            res_a = ()
+        if (last_char is None) or ('t' != last_char) or (run_len < 2 and 't' == last_char):
+            res_t = meal_builder(prefix + 't', 't', run_len + 1 if last_char == 't' else 1, left - 1)
+        else:
+            res_t = ()
+        return res_a + res_t
+    return meal_builder('', None, 0, n)
 
+"""
 print(exciting_meal_plans(5))
-
-
+print(exciting_meal_plans(1))
+print(exciting_meal_plans(0))
+"""
