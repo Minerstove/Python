@@ -69,5 +69,52 @@ def used_buzz_words(buzz_words, speech):
 
 #Prac 3j - Mag-exercise Tayo Tuwing Umaga
 def fitness_routine(exercises):
-    ...
+    def helper(exercise,k):
+        if not exercise:
+            return()
+        return (exercise[:k],) + helper(exercise[k:], k + 1)
+    return helper(exercises,1)
+
+"""print(fitness_routine('magexercisetayo'))
+print(fitness_routine('tuwingumaga'))"""
+
+#Prac 3k - Door to Door
+def gifted(homeowners, x_interval, y_interval):
+    return tuple(
+        homeowners[i] for i in range(len(homeowners)) 
+        if (i % x_interval == 0 or i % y_interval == 0)
+        )
+
+"""print(gifted((
+        'cloud',
+        'barret',
+        'tifa',
+        'aerith',
+        'red xiii',
+        'cait sith',
+        'yuffie',
+        'vincent',
+        'cid',
+    ), 3, 3)
+)
+
+print(gifted((
+        'cloud',
+        'barret',
+        'tifa',
+        'aerith',
+        'red xiii',
+        'cait sith',
+        'yuffie',
+        'vincent',
+        'cid',
+    ), 2, 3)
+)"""
+
+#Prac 3i - Healthy Diet
+def exciting_meal_plans():
+    return ...
+
+print(exciting_meal_plans(5))
+
 
