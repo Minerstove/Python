@@ -38,3 +38,36 @@ print(attendance_easy(
         ('dennis', 'jeremiah', 'eugene'),
         ('eugene', 'alfred', 'dennis', 'vincent'),
     ))
+
+#Prac 3h - School Sections
+def empty_sections(s, student_numbers):
+    existing_sections = frozenset(i % s for i in student_numbers) 
+    return s - len(existing_sections)
+
+"""print(empty_sections(8, (
+    200062361, 200000263, 200092785, 200000916, 200071571,
+    200089503, 200035712, 200015911, 200070711, 200061120,
+    200020828, 200098139, 200056057, 200075391, 200016588,
+    200005853, 200090523, 200015692, 200006517, 200066676,
+)),)"""
+
+#Prac 3i - I know some of these words
+def used_buzz_words(buzz_words, speech):
+    return tuple(i for i in buzz_words if i in speech)
+
+"""print(used_buzz_words((
+        'quantum',
+        'scheme',
+        'stack',
+        'cohomology',
+        'qubits',
+        'grassmannian',
+        'nullstellensatz',
+    ),
+    'quantum cellular homology not a mistacke qubitscheme quantumhealing quantum quantum woohoo',
+))"""
+
+#Prac 3j - Mag-exercise Tayo Tuwing Umaga
+def fitness_routine(exercises):
+    ...
+
