@@ -1,0 +1,8 @@
+1. Submit and Check Solutions in 'student_solution.py' of each folder!!
+
+- write the code in the function given
+- then run that file using 'python3 <name>.py' (the same way you run your code in WSL in labs!)
+
+
+2. Do not open the folders 'OJ' unless you want to see test cases!!
+3. For model solutions, look at the "model_solutions" folder outside offline judge instead. Most of the model solutions used in checking your answers are heartbreak code, so you may not understand them. The ones in the "model_solutions" folder / solutions file I'll release are more understandable !!
