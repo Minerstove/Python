@@ -11,3 +11,5 @@ def level_of_inflation(tup):
   elif depth==0: return "There is no inflation right now"
   else:
     return "There is a constant (but not zero) " + "rate of "*(depth-1) + "inflation right now"
+
+print(level_of_inflation((2, 4, 6, 8, 10)))

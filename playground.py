@@ -36,8 +36,23 @@ def _sorted(nums):
         ...
     
     return helper()
-print(_sorted((213, 2121312343, 213213)))
+#print(_sorted((213, 2121312343, 213213)))
 
+def _any(tup):
+    ...
+
+def _all(tup):
+    if not tup[0]:
+        return False
+    if len(tup) == 1:
+        return tup[0]
+    
+    return _all(tup[1:])
+print(_all((True, False, True, True, False)))
+
+def _zip(tup1, tup2):
+    ...
+    
 def _flipgrid(grid):
     ...
 
