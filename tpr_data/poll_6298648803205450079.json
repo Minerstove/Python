@@ -1,0 +1,32 @@
+{
+  "poll_id": "6298648803205450079",
+  "question": "Fuck you Viking",
+  "is_anonymous": false,
+  "allows_multiple_answers": false,
+  "options": [
+    "C",
+    "C",
+    "C"
+  ],
+  "correct_option_id": null,
+  "created_at": "2025-10-13T14:51:31.432175",
+  "voters": {
+    "5343429049": {
+      "name": "M1 Abrams",
+      "option_ids": [
+        0
+      ]
+    },
+    "7782595139": {
+      "name": "Father Christmas",
+      "option_ids": [
+        0
+      ]
+    }
+  },
+  "counts": [
+    2,
+    0,
+    0
+  ]
+}

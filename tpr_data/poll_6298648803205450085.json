@@ -1,0 +1,32 @@
+{
+  "poll_id": "6298648803205450085",
+  "question": "What the sigma",
+  "is_anonymous": false,
+  "allows_multiple_answers": false,
+  "options": [
+    "fuck you",
+    "fuck me",
+    "fuck"
+  ],
+  "correct_option_id": null,
+  "created_at": "2025-10-13T15:22:32.965899",
+  "voters": {
+    "5343429049": {
+      "name": "M1 Abrams",
+      "option_ids": [
+        0
+      ]
+    },
+    "7782595139": {
+      "name": "Father Christmas",
+      "option_ids": [
+        2
+      ]
+    }
+  },
+  "counts": [
+    1,
+    0,
+    1
+  ]
+}
