@@ -15,8 +15,11 @@ def walks_in_the_park(r,c):
             )
 
     def path_maker(cell, visited, path):
+        print("Visiting:", path)
         if cell == goal:
+            print("Reached goal:", path)
             return frozenset((tuple(path),))
+        
         
         neighs = tuple(n for n in get_neighbors(cell) if n not in visited)
 
@@ -33,6 +36,7 @@ def walks_in_the_park(r,c):
                 path + (nxt,)                  # no append(); use tuple concat
             )
             # branch: skip nxt, move to next neighbor
+            
             rest = grow(idx + 1)
             return taken | rest
 
