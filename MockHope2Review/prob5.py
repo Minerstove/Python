@@ -1,0 +1,2 @@
+# for dictionaries, .get(key, default value) this allows you to make a dictionary entry without an if else statement
+# try transforming indexes to 0 index by decrementing usually 1, try to think about this also if possible
