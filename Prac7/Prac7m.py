@@ -8,3 +8,4 @@ assert [*grid_neighs8(6, 3, 5, 2)] == [(4, 2), (5, 1), (4, 1)], [*grid_neighs8(6
 
 
 
+# UGHASLKHJKLJ just reorder the tuple bruh why couldnt it be qa set

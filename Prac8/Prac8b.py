@@ -1,22 +1,62 @@
 def battle_tictactoe_scores(grid):
-    r = len(grid)
-    c = len(grid[0])
+    r, c = len(grid), len(grid[0])
+    k = y = 0
 
-    k, y = 0, 0
-    #Check rows
+    def counter(s):
+        k_add = y_add = 0
+        for i in range(len(s) - 3):
+            w = s[i:i + 4]
+            if w == "KKKK":
+                k_add += 1
+            elif w == "YYYY":
+                y_add += 1
+        return k_add, y_add
+
+    # rows
     for row in grid:
-        checker = row[0]
-        for char in row:
-            if char == checker[-1]:
-                checker += char
-            else:
-                if checker == "KKKK":
-                    k += 1
-                elif checker == "YYYY":
-                    y += 1
+        dk, dy = counter(row)
+        k += dk; y += dy
+
+    # columns (transpose with zip)
+    for col in zip(*grid):
+        dk, dy = counter("".join(col))
+        k += dk; y += dy
+
+    # diagonals: top-left -> bottom-right
+    # offsets d = j - i
+    for d in range(-(r - 1), c):
+        diag = "".join(grid[i][i + d] for i in range(max(0, -d), min(r, c - d)))
+        if len(diag) >= 4:
+            dk, dy = counter(diag)
+            k += dk; y += dy
+
+    # diagonals: top-right -> bottom-left
+    # sums s = i + j
+    for s in range(r + c - 1):
+        diag = "".join(
+            grid[i][s - i]
+            for i in range(max(0, s - (c - 1)), min(r, s + 1))
+            if 0 <= s - i < c
+        )
+        if len(diag) >= 4:
+            dk, dy = counter(diag)
+            k += dk; y += dy
+
+    return (k, y)
 
 
-    #Check Columns
+assert battle_tictactoe_scores((
+    'KKKKKKY',
+    'YKYKYKY',
+    'KYKYKYY',
+    'YYYKKKY',
+    'YYYKKKY',
+)) == (6, 3), battle_tictactoe_scores((
+    'KKKKKKY',
+    'YKYKYKY',
+    'KYKYKYY',
+    'YYYKKKY',
+    'YYYKKKY',
+))
 
-    
-    #Check Diagonals
+
