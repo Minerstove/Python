@@ -4,7 +4,7 @@ def gas_stations(stations, points):
     
     result = []
     sorted_dict = sorted(stations)
-    
+
     # BINARY SEARCH
     for point in points:
         left, right = 0, len(sorted_dict) - 1
