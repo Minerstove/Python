@@ -16,3 +16,6 @@ def card_triplets(cards):
             yield (c1, c2, c3)
 
         c1, c2 = c2, c3
+
+assert [*card_triplets(("2H", "3D", "4H", "5H", "4H"))] == [("2H", "3D", "4H"), ("4H", "5H", "4H")], [*card_triplets(("2H", "3D", "4H", "5H", "4H"))]
+assert [*card_triplets(["AC", "2S", "3H", "4D", "5C", "6S", "7H", "8D", "9C", "JS", "QH", "KD"])] == [], [*card_triplets(["AC", "2S", "3H", "4D", "5C", "6S", "7H", "8D", "9C", "JS", "QH", "KD"])]
