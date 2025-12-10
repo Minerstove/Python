@@ -524,3 +524,224 @@ Key Insight:
 You can ignore some things if only one paramter is being asked for (in this case
 no need to index s)
 """
+
+##### Number 29
+
+def popcorn_like_seq():
+    for i in range(1, 4+1):
+        seq = []
+        for j in range(i):
+            seq.append(j)
+        while seq:
+            yield seq.pop()
+
+print(*popcorn_like_seq())
+
+"""
+Answer 0 1 2 1 0 3 2 1 0
+
+Explanation:
+.pop() returns the last element of a sequence
+
+so for each j in range(i)
+you build the seq
+
+then you yield each element in the seq starting from the back until it is empty.
+"""
+
+##### Number 30
+def foo(seq):
+    for v in seq:
+        yield v
+        if v % 3 == 0:
+            yield 1
+
+g = foo((3, 1, 4, 1, 5, 9))
+print(sum(x * y for x in g for y in g))
+
+"""
+Answer: 66
+
+g = (3, 1, 1, 4, 1, 5, 9, 1) 
+    - Do a trace
+
+so get the sum of each element multiplied to each element.
+
+or more simply sum(g)*i for i in g
+    - Extrapolate from for example 3*3 + 3*1 .... 3*1 == 3*(1...+1)
+
+sum(g) == 22
+
+for x in g gets the first element of g,
+for y in get gets the rest of the elements of g since g is a generator.
+
+3*22 == 66
+Key Insight:
+
+generators are only accessed an element at a time, its not saved.
+"""
+
+##### Number 31
+x = 1
+def f():
+    x = 2
+    def g():
+        nonlocal x
+        x += 5
+        return x
+    def h():
+        nonlocal x
+        x += 6
+        return x
+    return x + g() + h()
+
+print(f(), x)
+
+"""
+Answer: 22 1
+
+Explanation:
+x outside the function f() is diff from the x within the function f()
+
+so when we print(f(), x)
+
+f() 1
+
+Which leaves us with Only C. To confirm this lets run through f()
+
+f() defines x == 2
+
+return x == 2 + g()
+
+It calls g()
+g() adds 5 to x, so x == 7
+
+so now f() returns 2 + 7 + h()
+
+We call h()
+7 + 6 == 13
+
+so now f() returns 2 + 7 + 13 == 22
+
+so teh answer is 22 1
+
+Which is none of the options
+"""
+
+##### Number 32
+
+def f(x):
+    def g():
+        nonlocal x
+        x += 1
+        return x
+    return g
+
+h = f(11)
+print(h() + h() + h()*2)
+
+"""
+Answer is C. 53
+
+Explanation:
+h = f(11) makes it so that x is 11 in the h object
+
+Every time you all g() it increments x by 1 so
+
+h() = 12
+h() = 13
+h() = 14
+12 + 13 + 14*2 = 53
+"""
+
+##### Number 33
+def n_ab(n):
+    return _n_ab(n, ('',))
+def _n_ab(n, partial):
+    if not n:
+        return partial
+    else:
+        return _n_ab(n - 1,
+            (
+            *_append('a', partial, ()),
+            *_append('b', partial, ()),
+            )
+        )
+def _append(s, seq, partial):
+    if not seq:
+        return partial
+    else:
+        return _append(s, seq[1:], (*partial, s + seq[0]))
+
+print(n_ab(3))
+
+"""
+Answer:
+
+Explanation: 
+
+"""
+
+##### Number 34
+
+print(eval("'1'"))
+
+"""
+Answer: 1
+The function eval() evaluates a string as if it was a python function.
+
+so eval("'1'") evaluates '1' as a string. 
+When running a string in python it will print the string '1'
+"""
+
+##### Number 35
+
+"""
+CS 140 haha wtf u should just guess
+"""
+
+#################
+
+#FREE FORM QUESTIONS
+##### Number 36
+def d(s):
+    print('quack')
+    if s == s[::-1]:
+        return {s}
+    else:
+        return d(s[1:]) | d(s[:-1])
+    
+"""
+S
+"""
+
+##### Number 37
+from functools import cache
+
+@cache
+def d(s):
+    print('quack')
+    if s == s[::-1]:
+        return {s}
+    else:
+        return d(s[1:]) | d(s[:-1])
+    
+"""
+
+"""
+
+##### Number 38
+def f(ss):
+    sss = {'a', 'b', 'c'}
+    return (s for s in ss if set(s.lower()) <= sss)
+
+"""
+
+"""
+
+##### Number 39
+def is_weakly_zigzag(seq):
+    return all(
+        x >= y <= z or x <= y >= z
+        for (x, y, z) in zip(seq, seq[1:], seq[2:])
+    )
