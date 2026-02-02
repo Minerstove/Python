@@ -590,7 +590,7 @@ squares each of those numbers, and returns the sum of those squares.
 b.
 'good' 30922
 c.
-'bad' raises a ValueError (look at the code haha)
+'bad' # raises a ValueError (look at the code haha)
 """
 
 ##### Number 21
@@ -637,6 +637,7 @@ def f(xs):
     for sq in squares:
         if sq % 10 == 9:
             result.append(sq)
+    return result
 """
 
 ##### Number 23
